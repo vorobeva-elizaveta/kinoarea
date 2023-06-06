@@ -2,7 +2,9 @@
 
 <template>
   <div class="main-page">
-    <div class="main-page__container"><RouterView /></div>
+    <div class="main-page__container">
+      
+    </div>
   </div>
 </template>
 
