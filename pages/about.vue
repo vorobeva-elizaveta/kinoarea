@@ -1,8 +1,21 @@
-<script setup></script>
+<script setup>
+const {
+  data: products,
+  pending,
+  error,
+} = useFetch("https://api.kinopoisk.dev/v1.3/movie/random", {
+  headers: {
+    "X-API-KEY": "55NC2F3-4244ZY8-K8V339X-48BR2V9",
+  },
+});
+</script>
 
 <template>
   <div>
     <h2>About!</h2>
+    {{ pending }}
+    {{ error }}
+    <pre>{{ products }}</pre>
   </div>
 </template>
 
