@@ -13,8 +13,14 @@
       <ul class="user-header__menu">
         <li class="menu__item"></li>
       </ul>
+      <base-button>Hello!</base-button>
     </div>
   </header>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+.user-header {
+  &__container {
+  }
+}
+</style>

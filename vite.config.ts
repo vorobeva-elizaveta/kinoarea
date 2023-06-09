@@ -16,6 +16,7 @@ export default defineConfig({
       scss: {
         additionalData: `
           @import "@/app/styles/variables.scss";
+          @import "@/app/styles/fonts.scss";
           @import "@/app/styles/style.scss";
           @import "@/app/styles/normalize.scss";
         `
