@@ -12,12 +12,34 @@ defineProps({
 </script>
 
 <template>
-  <button class="base-button">
+  <button class="base-button" :class="`${style} ${size}`">
     <slot />
   </button>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .base-button {
+  display: block;
+  font-weight: 700 !important;
+  border-radius: 10px;
+  @apply p-5;
+  transition: 0.2s;
+
+  &.blue {
+    background: $blue;
+    color: $white !important;
+
+    &:hover {
+      box-shadow: 0px 0px 15px rgba(72, 113, 255, 0.8);
+    }
+  }
+
+  &.light {
+    background: $white;
+    color: $blue !important;
+    &:hover {
+      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+    }
+  }
 }
 </style>
