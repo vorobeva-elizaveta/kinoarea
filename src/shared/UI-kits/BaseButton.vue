@@ -41,5 +41,19 @@ defineProps({
       box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
     }
   }
+
+  &.light-solid {
+    @apply border-[2px] border-solid text-white;
+    &:hover {
+      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  &.yellow {
+    @apply bg-yellow;
+    &:hover {
+      box-shadow: 0px 0px 15px rgba(251, 255, 26, 0.5);
+    }
+  }
 }
 </style>
