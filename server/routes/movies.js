@@ -14,9 +14,6 @@ router.get('/movies', async (req, res)=> {
 router.post('/add-movie', async (req, res) => {
     console.log(req.body.id);
     let ref = await moviesCollection.where('id', '==', req.body.id).get()
-
-    console.log(ref.empty);
-    console.log(ref.docs[0].id);
     res.send(ref.id)
 })
 
