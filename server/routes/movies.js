@@ -1,7 +1,5 @@
 import { Router } from "express";
-import moviesCollection, {getMovies} from "../models/movies.js";
-import db from "../firebase.js";
-import { setDoc, doc, getDoc,where } from 'firebase/firestore/lite';
+import moviesCollection, { getMovies } from "../models/movies.js";
 import { Filter } from "firebase-admin/firestore";
 
 
