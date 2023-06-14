@@ -12,13 +12,13 @@ export default class Movies {
     static async addMovie(res, data) {
         let ref = await moviesCollection.where(
             Filter.or(
-                Filter.where('id', '==', req.body.id),
-                Filter.where('kp-id', '==', req.body.id)
+                Filter.where('id', '==', data.id),
+                Filter.where('kp-id', '==', data.id)
             )
         ).get()
     
         if(ref.empty) {
-            moviesCollection.add(req.body)
+            moviesCollection.add(data)
             res.send(ref.docs[0])
             return 
         }
