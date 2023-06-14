@@ -16,11 +16,11 @@ export default class Movies {
                 Filter.where('kp-id', '==', data.id)
             )
         ).get()
-    
+
         if(ref.empty) {
-            moviesCollection.add(data)
-            res.send(ref.docs[0])
-            return 
+            const result = await moviesCollection.add(data)
+            console.log(await result.get());
+            return res.send((await result.get()).data())
         }
 
         return res.send('already exist')

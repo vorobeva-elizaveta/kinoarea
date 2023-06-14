@@ -4,6 +4,6 @@ import Movies from "../controllers/movies.js";
 const router = Router()
 
 router.get('/movies', async (req, res)=> await Movies.getMovies(res))
-router.post('/add-movie', async (req, res) => await Movies.getMovies(res, req.body))
+router.post('/add-movie', async (req, res) => await Movies.addMovie(res, req.body))
 
 export default router
