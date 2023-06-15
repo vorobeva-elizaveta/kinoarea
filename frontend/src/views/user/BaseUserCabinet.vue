@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import UserHeader from '@/widgets/user/navigation/TheUserHeader.vue'
+import UserHeader from "@/widgets/user/navigation/TheUserHeader.vue";
+import MoviesAPI from "@/shared/api/movies";
+
+MoviesAPI.fetchAllMovies();
 </script>
 
 <template>
