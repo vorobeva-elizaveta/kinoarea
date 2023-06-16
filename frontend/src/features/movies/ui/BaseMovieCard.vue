@@ -10,6 +10,8 @@ defineProps<{
   <div class="base-movie-card" v-if="movie != null">
     <div class="base-movie-card__container">
       <img src="" alt="" v-if="movie.poster != null" />
+      <h3 v-if="movie.name != null">{{ movie.name }}</h3>
+      <h3 v-if="movie.name != null">Название не задано</h3>
     </div>
   </div>
 </template>
