@@ -1,5 +1,6 @@
-import moviesCollection, { getMovies } from "../models/movies.js";
+import moviesCollection from "../models/movies.js";
 import { Filter } from "firebase-admin/firestore";
+import addMovieToDb from "./add-to-bd.js";
 
 export default class Movies {
     constructor() {}
@@ -10,19 +11,6 @@ export default class Movies {
         return res.send(moviesList)
     }
     static async addMovie(res, data) {
-        let ref = await moviesCollection.where(
-            Filter.or(
-                Filter.where('id', '==', data.id),
-                Filter.where('kp-id', '==', data.id)
-            )
-        ).get()
-
-        if(ref.empty) {
-            const result = await moviesCollection.add(data)
-            console.log(await result.get());
-            return res.send((await result.get()).data())
-        }
-
-        return res.send('already exist')
+        return addMovieToDb(moviesCollection, res, data)
     }
 }
