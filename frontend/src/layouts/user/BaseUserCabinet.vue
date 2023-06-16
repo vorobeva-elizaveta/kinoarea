@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import UserHeader from "@/widgets/user/navigation/TheUserHeader.vue";
-import MoviesAPI from "@/shared/api/movies";
+import UserHeader from '@/widgets/user/navigation/TheUserHeader.vue'
+import MoviesAPI from '@/shared/api/movies'
 
-MoviesAPI.fetchAllMovies();
+MoviesAPI.fetchAllMovies()
 </script>
 
 <template>
@@ -10,7 +10,9 @@ MoviesAPI.fetchAllMovies();
     <div class="base-user-cabinet__container">
       <user-header></user-header>
       <main class="main" id="main">
-        <RouterView />
+        <div class="main__container">
+          <RouterView />
+        </div>
       </main>
     </div>
   </div>
@@ -27,6 +29,13 @@ MoviesAPI.fetchAllMovies();
 
   .main {
     flex: 0 0 auto;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+
+    &__container {
+      @apply w-4/5;
+    }
   }
 }
 </style>

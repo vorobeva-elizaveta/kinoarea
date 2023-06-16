@@ -5,8 +5,8 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: () => import('@/views/user/BaseUserCabinet.vue')
+      component: () => import('@/layouts/user/BaseUserCabinet.vue'),
+      children: [{ path: '', name: 'home', component: () => import('@/views/user/MainPage.vue') }]
     }
   ]
 })

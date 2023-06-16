@@ -241,4 +241,15 @@
 * {
   font-family: 'Qanelas', sans-serif !important;
   font-size: 16px;
+  color: $white !important;
+}
+
+h1 {
+  @apply xl:text-[65px] md:text-[45px] max-sm:text-[32px] font-black;
+}
+h2 {
+  @apply text-lg;
+}
+h3 {
+  @apply text-base;
 }
