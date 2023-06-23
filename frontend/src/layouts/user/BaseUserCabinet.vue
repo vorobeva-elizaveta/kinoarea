@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import UserHeader from '@/widgets/user/navigation/TheUserHeader.vue'
-import MoviesAPI from '@/shared/api/movies'
-
-MoviesAPI.fetchAllMovies()
 </script>
 
 <template>
@@ -21,7 +18,8 @@ MoviesAPI.fetchAllMovies()
 <style lang="scss">
 .base-user-cabinet {
   background: $darkBlue;
-  height: 100%;
+  height: max-content;
+  min-height: 100%;
 
   &__container {
     @apply flex flex-col h-full;

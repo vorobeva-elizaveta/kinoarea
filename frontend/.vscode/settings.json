@@ -1,0 +1,25 @@
+{
+    "prettier.prettierPath": "",
+    "prettier.configPath": "./.prettierrc.json",
+    "testing.automaticallyOpenPeekView": "never",
+    "vitest.enable": true,
+    "vitest.include": [
+        "**/*.test.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"
+    ],
+    "vite.autoStart": false,
+    "vitest.nodeEnv": {
+    },
+    "vitest.debugExclude": [
+        "<node_internals>/**",
+        "**/node_modules/**"
+    ],
+    "tailwindCSS.lint.invalidApply": "ignore",
+    "tailwindCSS.lint.invalidTailwindDirective": "ignore",
+    "tailwindCSS.emmetCompletions": true,
+    "tailwindCSS.lint.cssConflict": "warning",
+    "css.lint.argumentsInColorFunction": "error",
+    "css.lint.unknownAtRules": "ignore",
+    "scss.lint.unknownAtRules": "ignore",
+    "css.customData": [".vscode/tailwind.json"]
+
+}

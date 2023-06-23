@@ -1,17 +1,18 @@
-import instance from "@/app/libs/axios.config";
+import instance from '@/app/libs/axios.config'
+interface IResonse {
+  error: boolean,
+  result: []
+}
 
 export default class MovieApi {
-  constructor() {}
+  constructor() { }
+  
 
   public static async fetchAllMovies() {
-    interface IMovie {
-      id: number;
-    }
-    await instance
-      .get<IMovie[]>(`movies`, {})
-      .then((data) => {
-        console.log(data);
-        return data;
-      });
+    
+    return <IResonse> await instance.get(`movies`, {}).then((data) => {
+      console.log(data)
+      return data
+    })
   }
 }

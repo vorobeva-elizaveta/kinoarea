@@ -248,8 +248,8 @@ h1 {
   @apply xl:text-[65px] md:text-[45px] max-sm:text-[32px] font-black;
 }
 h2 {
-  @apply text-lg;
+  @apply text-2xl font-bold;
 }
 h3 {
-  @apply text-base;
+  @apply text-[18px] font-bold;
 }

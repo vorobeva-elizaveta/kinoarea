@@ -8,7 +8,10 @@ export default class Movies {
     static async getMovies(res) {
         const movies = await moviesCollection.get()
         const moviesList = movies.docs.map(doc => doc.data())
-        return res.send(moviesList)
+        return res.send({
+            error: false,
+            result: moviesList
+        })
     }
     static async addMovie(res, data) {
         return addMovieToDb(moviesCollection, res, data)
