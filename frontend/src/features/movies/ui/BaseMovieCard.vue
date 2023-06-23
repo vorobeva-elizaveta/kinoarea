@@ -2,7 +2,7 @@
 import type IMovie from "@/shared/types/IMovie";
 
 defineProps<{
-  movie: IMovie;
+  movie?: IMovie;
 }>();
 </script>
 

@@ -12,10 +12,13 @@ requestGetAllMovies();
 </script>
 
 <template>
-  <div class="now-in-cinema-component">
+  <div class="now-in-cinema-component" v-if="movies != null">
     <div class="now-in-cinema-component__container">
       <h1>Сейчас в кино</h1>
-      <div class="now-in-cinema-component__movies-block">
+      <div
+        class="now-in-cinema-component__movies-block"
+        v-if="movies.length > 0"
+      >
         <base-movie-card v-for="i of 8" :key="i" :movie="movies[i - 1]" />
       </div>
     </div>

@@ -3,4 +3,5 @@ export default interface IMovie {
   name: string
   type: string
   poster: string
+  [key: string]: any
 }
