@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import type IMovie from '@/shared/types/IMovie'
+import type {IMovie} from '@/shared/types/IMovie'
 import MovieApi from '@/shared/api/movies'
 
 const useMoviesStore = defineStore('movies', () => {

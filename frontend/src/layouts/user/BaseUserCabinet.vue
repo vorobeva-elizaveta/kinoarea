@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import UserHeader from '@/widgets/user/navigation/TheUserHeader.vue'
+import UserHeader from "@/widgets/user/navigation/TheUserHeader.vue";
 </script>
 
 <template>
@@ -32,7 +32,14 @@ import UserHeader from '@/widgets/user/navigation/TheUserHeader.vue'
     justify-content: center;
 
     &__container {
-      @apply w-4/5;
+      width: 74.3%;
+
+      @media (max-width: 1024px) {
+        width: 85%;
+      }
+      @media (max-width: 768px) {
+        width: 86%;
+      }
     }
   }
 }
