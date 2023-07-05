@@ -1,5 +1,4 @@
 import moviesCollection from "../models/movies.js";
-import { Filter } from "firebase-admin/firestore";
 import addMovieToDb from "./add-to-bd.js";
 
 export default class Movies {

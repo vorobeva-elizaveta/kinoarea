@@ -1,35 +1,28 @@
 <script setup lang="ts">
-import { storeToRefs } from "pinia";
+import { storeToRefs } from 'pinia'
 
-import useMovieStore from "@/store/movies";
-import BaseMovieCard from "@/features/movies/ui/BaseMovieCard.vue";
+import useMovieStore from '@/store/movies'
+import BaseMovieCard from '@/features/movies/ui/BaseMovieCard.vue'
 
-const { requestGetAllMovies } = useMovieStore(),
-  movieStore = useMovieStore(),
-  { movies } = storeToRefs(movieStore);
+const { requestGetAllMovies, getMoviesByGenre } = useMovieStore(),
+  { movieList } = storeToRefs(useMovieStore())
 
-requestGetAllMovies();
+requestGetAllMovies()
 </script>
 
 <template>
-  <div class="now-in-cinema-component" v-if="movies != null">
+  <div class="now-in-cinema-component" v-if="movieList != null">
     <div class="now-in-cinema-component__container">
       <h1>Сейчас в кино</h1>
-      <div
-        class="now-in-cinema-component__movies-block"
-        v-if="movies.length > 0"
-      >
+      <div class="now-in-cinema-component__movies-block" v-if="movieList.length > 0">
         <base-movie-card
           v-for="i of 8"
           :key="i"
-          :movie="movies[i - 1]"
+          :movie="movieList[i - 1]"
           class="movies-block__movie-card"
         />
       </div>
-      <base-button
-        class="now-in-cinema-component__all-movies-button"
-        :style="`light-solid`"
-      >
+      <base-button class="now-in-cinema-component__all-movies-button" :style="`light-solid`">
         Все новинки
       </base-button>
     </div>
