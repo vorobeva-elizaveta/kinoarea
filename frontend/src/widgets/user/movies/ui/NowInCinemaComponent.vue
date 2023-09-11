@@ -3,9 +3,14 @@ import { storeToRefs } from 'pinia'
 
 import useMovieStore from '@/store/movies'
 import BaseMovieCard from '@/features/movies/ui/BaseMovieCard.vue'
+import NowInCinemaFilterComponent from '@/features/movies/ui/NowInCinemaFilterComponent.vue'
+import { ref } from 'vue'
+import type { IMovie } from '@/shared/types/IMovie'
 
-const { requestGetAllMovies, getMoviesByGenre } = useMovieStore(),
-  { movieList } = storeToRefs(useMovieStore())
+const { requestGetAllMovies } = useMovieStore(),
+  movieList = ref<IMovie[]>([])
+
+const setMovieList = (value: IMovie[]) => (movieList.value = value)
 
 requestGetAllMovies()
 </script>
@@ -13,7 +18,7 @@ requestGetAllMovies()
 <template>
   <div class="now-in-cinema-component" v-if="movieList != null">
     <div class="now-in-cinema-component__container">
-      <h1>Сейчас в кино</h1>
+      <now-in-cinema-filter-component @change="setMovieList" />
       <div class="now-in-cinema-component__movies-block" v-if="movieList.length > 0">
         <base-movie-card
           v-for="i of 8"

@@ -20,24 +20,29 @@ const useMoviesStore = defineStore('movies', () => {
 
   const getMoviesByGenre = (genre: string) => {
     const movieList = [...movies.value],
-      regExp = new RegExp(`${genre}`, 'gi'),
-      searchCb = (el: IMovie) =>
-        el.genres?.reduce((accum, current) => (accum += current.name), '').search(regExp)
+      searchCb = (el: IMovie) => el.genres?.map((element) => element.name).includes(genre)
 
-    movieList.filter((el) => {
+    return movieList.filter((el) => {
       const result = searchCb(el)
-      return result != null && result > -1
+      return result == true ? el : null
     })
-    return movieList
   }
 
   const getTrillerMovies = computed(() =>
-    movieList.value != null ? getMoviesByGenre('триллер') : null
+    movieList.value != null ? getMoviesByGenre('триллер') : []
+  )
+  const getActionMovies = computed(() =>
+    movieList.value != null ? getMoviesByGenre('боевик') : []
+  )
+  const getDramaticsMovies = computed(() =>
+    movieList.value != null ? getMoviesByGenre('драма') : []
   )
 
   return {
     movieList,
     getTrillerMovies,
+    getActionMovies,
+    getDramaticsMovies,
     getMoviesByGenre,
     requestGetAllMovies
   }

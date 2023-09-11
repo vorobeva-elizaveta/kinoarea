@@ -1,48 +1,41 @@
 <script setup lang="ts">
-import type { IMovie, IMovieGenre } from "@/shared/types/IMovie";
-import { computed, toRefs } from "vue";
+import type { IMovie, IMovieGenre } from '@/shared/types/IMovie'
+import { computed, toRefs } from 'vue'
 
 const props = defineProps<{
-    movie: IMovie;
+    movie: IMovie
   }>(),
-  { movie } = toRefs(props);
+  { movie } = toRefs(props)
 
 const movieGenresReduceCb = (
   accumulator: string,
   currentValue: IMovieGenre,
   currentValueIndex: number
 ) => {
-  accumulator += currentValue.name;
-  return movie.value.genres != null &&
-    currentValueIndex < movie.value.genres.length - 1
-    ? (accumulator += ", ")
-    : accumulator;
-};
+  accumulator += currentValue.name
+  return movie.value.genres != null && currentValueIndex < movie.value.genres.length - 1
+    ? (accumulator += ', ')
+    : accumulator
+}
 const movieGenres = computed(() => {
   if (movie.value != null && movie.value.genres != null) {
-    return movie.value.genres.reduce(movieGenresReduceCb, "");
+    return movie.value.genres.reduce(movieGenresReduceCb, '')
   }
-  return null;
-});
+  return null
+})
 
 const movieRatingColor = computed(() => {
-  if (
-    movie.value != null &&
-    movie.value.rating != null &&
-    movie.value.rating.imdb != null
-  ) {
-    if (movie.value.rating.imdb > 8) return "green";
-    else if (movie.value.rating.imdb >= 5 && movie.value.rating.imdb < 8)
-      return "lightGreen";
-    else return "red";
+  if (movie.value != null && movie.value.rating != null && movie.value.rating.imdb != null) {
+    if (movie.value.rating.imdb > 8) return 'green'
+    else if (movie.value.rating.imdb >= 5 && movie.value.rating.imdb < 8) return 'lightGreen'
+    else return 'red'
   }
-  return null;
-});
+  return null
+})
 </script>
 
 <template>
   <div class="base-movie-card" v-if="movie != null">
-    <!-- <pre>{{ movie }}</pre> -->
     <div class="base-movie-card__container">
       <div class="base-movie-card__poster-block">
         <span class="base-movie-card__rating-tag" :class="movieRatingColor">
